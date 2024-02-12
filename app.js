@@ -29,7 +29,16 @@ const createNewConfettis = (amount) =>{
 const setConfettis = () => {
     const confettis = document.querySelectorAll(".confetti");
     const confettiContainer = document.querySelector(".confetti-container")
+    let colours = ["#FF0000", "#00FF00", "#0000FF", "FFFFFF"];
     confettis.forEach((confetti) =>{
+        let pickedColor = Math.floor(Math.random()*5);
+        if(pickedColor != 5) {
+            confetti.style.background = colours[Math.floor(Math.random()*5)];
+        }else{
+            pickedColor = Math.floor(Math.random()*5);
+            confetti.style.background = colours[Math.floor(Math.random()*5)];
+        }
+
         let sidePick, toggleX, toggleY;
         
         sidePick = Math.round(Math.random()-1);
@@ -87,7 +96,7 @@ const startAnimation = (a, amount, SpeedX, confettis) => {
                     confetti.remove();
                 }
             })
-        }, 200);
+        }, 0);
     }
 }
 
@@ -109,6 +118,6 @@ const trigger = document.querySelector("#confetti-trigger");
 
 trigger.addEventListener("click", () => {
     clearInterval(1);
-    animateConfettis(20, 1, 0.001);
+    animateConfettis(50, 1, 0.001);
 });
 
