@@ -14,13 +14,18 @@ body{
     position: relative;
     width: 100%;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .confetti{
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 1rem;
+    height: 1rem;
     background-color: white;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-name: spinning;
 }
 
 .confetti-rotation{
